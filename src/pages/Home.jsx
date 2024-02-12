@@ -19,7 +19,7 @@ function Home() {
 
 	useEffect(() => {
 		let cancelRequest = false;
-		let url = "https://api.tvmaze.com/shows";
+		let url = "https://api.tvmaze.com/shows?limit=20";
 		if (searchTerm) {
 			url = `https://api.tvmaze.com/search/shows?q=${searchTerm}`;
 		}
@@ -51,7 +51,7 @@ function Home() {
 
 	return (
 		<div className="">
-			<SearchForm setSearchTerm={setSearchTerm} />
+			<SearchForm setSearchTerm={setSearchTerm} id="shows"/>
 			{error && <div className="error">{error}</div>}
 			{loading && <div className="loading">Loading...</div>}
 			<Shows data={currentMovie} loading={loading} />
